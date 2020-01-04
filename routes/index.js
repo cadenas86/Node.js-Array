@@ -12,4 +12,13 @@ router.get('/', function(req, res, next){
   }
 });
 
+router.post('/', function(req, res, next){
+  let bodyFlower = req.body;
+  if (flowers.includes(bodyFlower.flower)){
+    res.send('We already have that flower, no need to add it');
+  }else{
+    flowers.push(bodyFlower.flower);
+    res.send(flowers);
+  }
+});
 module.exports = router;
